@@ -18,6 +18,7 @@
 
 .link-logo {
   margin-top: 4px;
+  outline: none;
 }
 
 .logo {
@@ -32,6 +33,31 @@
 }
 .container-link .link:hover {
   color: #EC1D24;
+}
+
+.container-character {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.img-character {
+  height: 300px;
+  width: 300px;
+  margin: 20px;
+}
+
+.card-character {
+  background-color: rgba(230, 230, 230, 0.3);
+  border-radius: 5px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  height: 380px;
+  margin: 20px;
+  flex-direction: column;
+}
+
+.title-character {
+  text-align: center;
 }
 
 /*# sourceMappingURL=main.css.map */
