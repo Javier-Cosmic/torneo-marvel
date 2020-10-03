@@ -1,0 +1,2 @@
+export const SHOW_CHARACTER = 'SHOW_CHARACTER';
+export const LOAD_CHARACTER = 'LOAD_CHARACTER';
