@@ -3,15 +3,19 @@ import {Link} from 'react-router-dom';
 
 const Character = ({ character }) => {
     return (
-        <div className='card-character'>
+        <div className='card'>
             <img
-                className='img-character'
+                className='img'
                 loading='lazy'
                 src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
                 alt='character marvel'
             />
-            <h1 className='title-character'>{character.name}</h1>
-            <Link to={`/comic/${character.id}`}>Comics</Link>
+            <h1 className='title'>{character.name}</h1>
+            <div className='links-character'>
+                <Link className='link-comic color-link1' to={`/comic/${character.id}`}>Comics</Link>
+                <Link className='link-comic color-link2' to={`/comic/${character.id}`}>Series</Link>
+                <Link className='link-comic color-link3' to={`/comic/${character.id}`}>Eventos</Link>
+            </div>
         </div>
     );
 };

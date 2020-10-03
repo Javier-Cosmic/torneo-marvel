@@ -14,22 +14,23 @@ const MainCharacter = () => {
             dispatch(loadCharacter());
         };
         loadingCharacter();
-
     }, [dispatch]);
 
     return (
         <div>
             <Header />
-            {loading ?
-                <h1>Cargando...</h1>
-            
-             :   <div className='container-character'>
+            <h1 className='title-header'>Personajes</h1>
+            {loading ? (
+                <div className='container-flex'>
+                    <p className='spinner'></p>
+                </div>
+            ) : (
+                <div className='container'>
                     {character.map((character) => (
-                        
                         <Character key={character.id} character={character} />
                     ))}
                 </div>
-            }
+            )}
         </div>
     );
 };

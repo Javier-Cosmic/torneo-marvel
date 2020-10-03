@@ -7,6 +7,42 @@
   text-transform: uppercase;
 }
 
+.button-back {
+  outline: none;
+  border-style: none;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  background-color: #EC1D24;
+}
+.button-back:hover {
+  background-color: #bb1c21;
+  cursor: pointer;
+}
+
+.container-flex {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0px;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 4px solid #EC1D24;
+  border-top: 4px solid transparent;
+  animation: 1s spinner infinite;
+  border-radius: 50%;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(380deg);
+  }
+  from {
+    transform: rotate(20deg);
+  }
+}
 .header {
   height: 4rem;
   background-color: #202020;
@@ -14,6 +50,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
+}
+@media (max-width: 500px) {
+  .header {
+    padding: 0 10px;
+  }
 }
 
 .link-logo {
@@ -28,26 +69,43 @@
 .container-link .link {
   color: white;
   text-decoration: none;
-  margin: 10px;
   transition: 0.2s;
 }
 .container-link .link:hover {
   color: #EC1D24;
 }
+.container-link .link-active {
+  color: #EC1D24;
+}
 
-.container-character {
+.title-header {
+  text-align: center;
+  margin: 20px 0 10px 0;
+  font-size: 2rem;
+}
+
+.container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.img-character {
-  height: 300px;
+.img {
+  height: 330px;
   width: 300px;
-  margin: 20px;
+  margin: 22px;
 }
 
-.card-character {
+.card {
+  background-color: rgba(230, 230, 230, 0.3);
+  border-radius: 5px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  height: 480px;
+  margin: 20px;
+  flex-direction: column;
+}
+
+.card-comic {
   background-color: rgba(230, 230, 230, 0.3);
   border-radius: 5px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
@@ -56,8 +114,74 @@
   flex-direction: column;
 }
 
-.title-character {
+.title {
   text-align: center;
+  font-size: 1.2rem;
+}
+
+.title-error {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 30px;
+}
+
+.container-title {
+  width: 290px;
+  padding: 15px 20px 0 20px;
+}
+
+.title-comic {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 90%;
+}
+
+.img-comic {
+  height: 300px;
+  width: 250px;
+  margin: 20px;
+}
+
+.links-character {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 23px 0 25px 0;
+}
+
+.link-comic {
+  text-decoration: none;
+  padding: 0.4rem;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.color-link1 {
+  background-color: #EC1D24;
+  transition: 0.2s;
+}
+.color-link1:hover {
+  background-color: #bb1c21;
+  cursor: pointer;
+}
+
+.color-link2 {
+  background-color: #202020;
+  transition: 0.2s;
+}
+.color-link2:hover {
+  background-color: #000000;
+  cursor: pointer;
+}
+
+.color-link3 {
+  background-color: #0F6AB4;
+  transition: 0.2s;
+}
+.color-link3:hover {
+  background-color: #0f5186;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */
