@@ -1,14 +1,15 @@
-import React from 'react';
+import React from 'react'
 import Header from '../header/Header';
 import SubHeader from '../header/SubHeader';
 
-const home = () => {
+const MainRanking = () => {
     return (
         <div>
             <Header />
-            <SubHeader>Torneo marvel</SubHeader>
+            <SubHeader>Ranking de ganadores</SubHeader>
+            Ranking
         </div>
     )
 }
 
-export default home;
+export default MainRanking

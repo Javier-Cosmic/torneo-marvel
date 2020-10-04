@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from '../header/Header';
+import SubHeader from '../header/SubHeader';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadCharacter } from '../../redux/actions/api-actions';
 import Character from './Character';
@@ -19,7 +20,7 @@ const MainCharacter = () => {
     return (
         <div>
             <Header />
-            <h1 className='title-header'>Personajes</h1>
+            <SubHeader>Personajes</SubHeader>
             {loading ? (
                 <div className='container-flex'>
                     <p className='spinner'></p>

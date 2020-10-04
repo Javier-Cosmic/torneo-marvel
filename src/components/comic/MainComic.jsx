@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from '../header/Header';
+import SubHeader from '../header/SubHeader';
 import { useParams } from 'react-router-dom';
 import { loadComic } from '../../redux/actions/api-actions';
 import { useSelector, useDispatch } from 'react-redux';
@@ -25,7 +26,7 @@ const MainComic = () => {
         return (
             <>
                 <Header />
-                <h1 className='title-error'>No existe el ID</h1>
+                <h1 className='title-error'>ID erroneo</h1>
             </>
         );
     }
@@ -33,7 +34,7 @@ const MainComic = () => {
     return (
         <div>
             <Header />
-            <h1 className='title-header'>Comics</h1>
+            <SubHeader>Comics</SubHeader>
             {loading ? (
                 <div className='container-flex'>
                     <p className='spinner'></p>

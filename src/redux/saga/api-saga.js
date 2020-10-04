@@ -16,7 +16,7 @@ function* getCharacters(){
     
     try {
         yield put({ type: LOADING, payload: true })
-        const result = yield call(axios.get, url+key);
+        const result = yield call(axios.get, url+'?orderBy=-modified&limit=100'+key);
 
         yield put({ type: SHOW_CHARACTER, payload: result.data.data.results})
         
@@ -30,7 +30,7 @@ function* getComics({ payload }){
     
     try {
         yield put({ type: LOADING, payload: true })
-        const result = yield call(axios.get, url+`/${payload}/comics`+key);
+        const result = yield call(axios.get, url+`/${payload}/comics?`+key);
 
         yield put({ type: SHOW_COMIC, payload: result.data.data.results })
 

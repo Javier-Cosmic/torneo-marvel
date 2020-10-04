@@ -12,6 +12,13 @@ const header = () => {
                 <NavLink
                     activeClassName='link-active'
                     className='link'
+                    to='/ranking'
+                >
+                    Ranking
+                </NavLink>
+                <NavLink
+                    activeClassName='link-active'
+                    className='link'
                     to='/character'
                 >
                     Superheroes
