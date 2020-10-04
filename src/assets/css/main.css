@@ -194,4 +194,28 @@
   cursor: pointer;
 }
 
+.container-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 129px);
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  padding: 4rem;
+}
+
+.choose-character {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.choose-button {
+  display: flex;
+  justify-content: space-between;
+}
+
 /*# sourceMappingURL=main.css.map */

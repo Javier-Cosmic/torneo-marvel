@@ -1,37 +1,35 @@
 import {
-    LOADING,
-    SHOW_CHARACTER,
-    SHOW_COMIC,
+    GET_ROUND,
+    GET_PLAYER1,
+    GET_PLAYER2
 } from '../types';
 
 const initialState = {
-    characters: [],
-    loading: false,
-    comics: []
+    round: 0,
+    player1: null,
+    player2: null
 }
 
 export default (state = initialState, action) => {
-
+    
     switch (action.type) {
 
-        case LOADING:
+        case GET_ROUND:
             return{
                 ...state,
-                loading: action.payload
+                round: action.payload
             }
 
-        case SHOW_CHARACTER:
+        case GET_PLAYER1:
             return{
                 ...state,
-                characters: action.payload,
-                loading: false,
+                player1: action.payload
             }
 
-        case SHOW_COMIC:
+        case GET_PLAYER2:
             return{
                 ...state,
-                comics: action.payload,
-                loading: false
+                player2: action.payload
             }
     
         default:
