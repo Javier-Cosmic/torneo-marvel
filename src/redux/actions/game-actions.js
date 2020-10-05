@@ -4,6 +4,7 @@ import {
     GET_PLAYER2
 } from '../types';
 
+
 export const getRound = (n) => {
     return{
         type: GET_ROUND,

@@ -1,46 +1,93 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Header from '../header/Header';
 import SubHeader from '../header/SubHeader';
-import {useDispatch, useSelector} from 'react-redux';
-import { loadCharacter } from '../../redux/actions/api-actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPlayer1, getPlayer2 } from '../../redux/actions/game-actions';
 
 const ChooseCharacter = () => {
-
     const dispatch = useDispatch();
-    const character1 = useSelector((state) => state.game_reducer.player1); 
+    const character1 = useSelector((state) => state.game_reducer.player1);
     const character2 = useSelector((state) => state.game_reducer.player2);
-    const characters = useSelector((state) => state.api_reducer.characters); 
+    const characters = useSelector((state) => state.api_reducer.characters);
 
-    const chooseCharacter = () => {
-        console.log(characters)
-    }
+    const randomCharacter = () => {
+        const res = characters.map((character) => {
+            const { id, name, thumbnail } = character;
+            return {
+                id: id,
+                name: name,
+                img: thumbnail.path + '.' + thumbnail.extension,
+            };
+        });
+        const numrandom = Math.floor(Math.random() * (100 - 0) + 0);
+        const choosed = res.filter(
+            (item, index, arr) => arr.indexOf(item) === numrandom
+        );
+        return choosed;
+    };
 
-    useEffect(() => {
-        const loadingCharacter = () => {
-            dispatch(loadCharacter());
-        };
-        loadingCharacter();
+    const chooseCharacter1 = () => {
+        dispatch(getPlayer1(randomCharacter()));
+    };
 
-    }, [dispatch]);
+    const chooseCharacter2 = () => {
+        dispatch(getPlayer2(randomCharacter()));
+    };
 
     return (
         <>
             <Header />
             <SubHeader>Torneo marvel</SubHeader>
             <div className='container-game'>
-                <div className='game'>
-                    <h1>Selecciona los personajes</h1>
-                    <section className='choose-character'>
-                        <p>¿</p>
-                        <span>vs</span>
-                        <p>?</p>
-                    </section>
-                    <div className='choose-button'>
-                        <button onClick={chooseCharacter}>aleatorio</button>
-                        <button onClick={chooseCharacter}>aleatorio</button>
+                <section className='game game-choose'>
+                    <h1 className='title-game'>Selecciona los personajes</h1>
+                    <div className='choose-character'>
+                        {character1 ? (
+                            <div className='container-img-player'>
+                                <img
+                                    className='img-player'
+                                    src={character1[0].img}
+                                    alt='player 1'
+                                />
+                                <div className='limit-title'><h3 className='title-name'>{character1[0].name}</h3></div>
+                            </div>
+                        ) : (
+                            <p className='incognit'>¿</p>
+                        )}
+                        <div className='container-vs'><span className='vs'>v / s</span></div>
+                        {character2 ? (
+                            <div className='container-img-player'>
+                                <img
+                                    className='img-player'
+                                    src={character2[0].img}
+                                    alt='player 2'
+                                />
+                                <div className='limit-title'><h3 className='title-name'>{character2[0].name}</h3></div>
+                            </div>
+                        ) : (
+                            <p className='incognit'>?</p>
+                        )}
                     </div>
-                    <button>iniciar batalla</button>
-                </div>
+                    <div className='choose-button'>
+                        {!character1 ? (
+                            <div className='button-left'>
+                                <button className='btn-ale' onClick={chooseCharacter1}>
+                                    aleatorio
+                                </button>
+                            </div>
+                        ) : null}
+                        {!character2 ? (
+                            <div className='button-right'>
+                                <button className='btn-ale' onClick={chooseCharacter2}>
+                                    aleatorio
+                                </button>
+                            </div>
+                        ) : null}
+                    </div>
+                    {character2 && character2 ? (
+                        <button className='button btn-start'>iniciar batalla</button>
+                    ) : null}
+                </section>
             </div>
         </>
     );

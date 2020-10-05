@@ -7,7 +7,9 @@ import {
 const initialState = {
     round: 0,
     player1: null,
-    player2: null
+    player2: null,
+    ganador: null,
+    ranking: []
 }
 
 export default (state = initialState, action) => {

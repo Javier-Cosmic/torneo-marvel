@@ -21,7 +21,7 @@ const header = () => {
                     className='link'
                     to='/character'
                 >
-                    Superheroes
+                    Superhéroes
                 </NavLink>
             </div>
         </header>
