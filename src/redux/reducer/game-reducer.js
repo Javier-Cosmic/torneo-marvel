@@ -49,7 +49,8 @@ export default (state = initialState, action) => {
             return{
                 ...state,
                 player1: null,
-                player2: null
+                player2: null,
+                round: 0
             }
     
         default:

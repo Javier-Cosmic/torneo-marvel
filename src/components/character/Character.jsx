@@ -11,7 +11,7 @@ const Character = ({ character }) => {
                 src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
                 alt='character marvel'
             />
-            <h1 className='title'>{character.name}</h1>
+            <div className='div-title'><h1 className='title'>{character.name}</h1></div>
             <div className='links-character'>
                 <Link className='link-comic color-link1' to={`/comic/${character.id}`}>Comics</Link>
                 <Link className='link-comic color-link2' to={`/comic/${character.id}`}>Series</Link>

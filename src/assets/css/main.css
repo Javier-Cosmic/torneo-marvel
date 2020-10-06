@@ -20,6 +20,13 @@
   cursor: pointer;
 }
 
+.btnfixed {
+  position: fixed;
+  bottom: 40px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6);
+}
+
 .margin-btn {
   margin-top: 35px;
 }
@@ -195,11 +202,12 @@
   padding: 0.4rem;
   border-radius: 5px;
   color: white;
-  margin-bottom: 20px;
+  vertical-align: middle;
 }
 
 .color-link1 {
   background-color: #EC1D24;
+  border: 1px solid transparent;
   transition: 0.2s;
 }
 .color-link1:hover {
@@ -209,22 +217,56 @@
 
 .color-link2 {
   background-color: #202020;
+  border: 1px solid transparent;
   transition: 0.2s;
 }
 .color-link2:hover {
-  background-color: #000000;
+  background-color: #363636;
   cursor: pointer;
 }
 
 .color-link3 {
-  background-color: #0F6AB4;
+  background-color: transparent;
+  color: #EC1D24;
+  border: 1px solid #EC1D24;
   transition: 0.2s;
 }
 .color-link3:hover {
-  background-color: #0f5186;
+  color: white;
+  background-color: #EC1D24;
   cursor: pointer;
 }
 
+@media (max-width: 350px) {
+  .card {
+    margin: 25px 0 0 0;
+    height: 480px;
+  }
+
+  .img {
+    width: 230px;
+    height: 300px;
+  }
+
+  .img-comic {
+    width: 230px;
+  }
+
+  .title {
+    margin-left: 40px;
+    width: 200px;
+    overflow: hidden;
+  }
+
+  .container-title {
+    width: 270px;
+    padding: 15px 20px 0 20px;
+  }
+
+  .div-title {
+    width: 90%;
+  }
+}
 .container-game {
   display: flex;
   justify-content: center;
@@ -445,6 +487,30 @@
 
   .game-choose {
     padding: 2rem 1.5rem 4rem 1.5rem;
+  }
+}
+.animation-player {
+  animation: 0.6s choose ease-in;
+}
+
+@keyframes choose {
+  from {
+    transform: scale(0, 0);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+.animation-btn {
+  animation: 0.6s crazy ease-in;
+}
+
+@keyframes crazy {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 

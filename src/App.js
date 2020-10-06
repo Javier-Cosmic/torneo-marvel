@@ -9,14 +9,15 @@ import MainRanking from './components/ranking/MainRanking';
 import ChooseCharacter from './components/game/ChooseCharacter';
 import RoundsGame from './components/game/RoundsGame';
 import Error from './components/home/Error';
+import ProtectedRoute from './components/route/ProtectedRoute';
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/choose'component={ChooseCharacter} />
-        <Route path='/choose/rounds' component={RoundsGame} />
+        <ProtectedRoute exact path='/choose'component={ChooseCharacter} />
+        <ProtectedRoute path='/choose/rounds' component={RoundsGame} />
         <Route exact path='/ranking' component={MainRanking} />
         <Route exact path='/character' component={MainCharacter} />
         <Route exact path='/comic/:id' component={MainComic} />

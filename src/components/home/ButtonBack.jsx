@@ -1,8 +1,11 @@
 import React from 'react';
 
-const ButtonBack = () => (
+const ButtonBack = ({ comic }) => (
     <div className='container-flex'>
-        <button className='button' onClick={() => window.history.back()}>
+        <button
+            className={comic ? 'button btnfixed' : 'button'}
+            onClick={() => window.history.back()}
+        >
             Volver
         </button>
     </div>

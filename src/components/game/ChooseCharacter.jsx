@@ -47,7 +47,7 @@ const ChooseCharacter = ({ history }) => {
                     <h1 className='title-game'>Selecciona los personajes</h1>
                     <div className='choose-character'>
                         {character1 ? (
-                            <div className='container-img-player'>
+                            <div className='container-img-player animation-player'>
                                 <img
                                     className='img-player'
                                     src={character1.img}
@@ -60,7 +60,7 @@ const ChooseCharacter = ({ history }) => {
                         )}
                         <div className='container-vs'><span className='vs'>v / s</span></div>
                         {character2 ? (
-                            <div className='container-img-player'>
+                            <div className='container-img-player animation-player'>
                                 <img
                                     className='img-player'
                                     src={character2.img}
@@ -89,7 +89,7 @@ const ChooseCharacter = ({ history }) => {
                         ) : null}
                     </div>
                     {character1 && character2 ? (
-                        <button type='button' onClick={goRounds} className='button btn-start'>iniciar batalla</button>
+                        <button type='button' onClick={goRounds} className='button btn-start animation-btn'>iniciar batalla</button>
                     ) : null}
                 </section>
             </div>

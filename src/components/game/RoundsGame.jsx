@@ -93,9 +93,10 @@ const RoundsGame = () => {
                     vida:
                     <span
                         style={{
-                            width: health1,
+                            width: health1+'px',
                             background: colorBar(health1),
                             display: 'block',
+                            transition: 'width 1s, background 1s'
                         }}
                     >
                         {health1}
@@ -112,6 +113,7 @@ const RoundsGame = () => {
                             width: health2,
                             background: colorBar(health2),
                             display: 'block',
+                            transition: 'width 1s, background 1s'
                         }}
                     >
                         {health2}
