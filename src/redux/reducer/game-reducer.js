@@ -1,7 +1,11 @@
 import {
     GET_ROUND,
     GET_PLAYER1,
-    GET_PLAYER2
+    GET_PLAYER2,
+    POINTS,
+    WINNER,
+    RANKING,
+    CLEAN_STATE
 } from '../types';
 
 const initialState = {
@@ -9,7 +13,8 @@ const initialState = {
     player1: null,
     player2: null,
     ganador: null,
-    ranking: []
+    ranking: [],
+    fights: []
 }
 
 export default (state = initialState, action) => {
@@ -32,6 +37,19 @@ export default (state = initialState, action) => {
             return{
                 ...state,
                 player2: action.payload
+            }
+
+        case RANKING:
+            return{
+                ...state,
+                ranking: [...state.ranking, action.payload].sort((a,b) => b.points - a.points)
+            }
+
+        case CLEAN_STATE:
+            return{
+                ...state,
+                player1: null,
+                player2: null
             }
     
         default:

@@ -7,6 +7,7 @@ import MainEvents from './components/events/MainEvents';
 import MainComic from './components/comic/MainComic';
 import MainRanking from './components/ranking/MainRanking';
 import ChooseCharacter from './components/game/ChooseCharacter';
+import RoundsGame from './components/game/RoundsGame';
 import Error from './components/home/Error';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/choose'component={ChooseCharacter} />
+        <Route path='/choose/rounds' component={RoundsGame} />
         <Route exact path='/ranking' component={MainRanking} />
         <Route exact path='/character' component={MainCharacter} />
         <Route exact path='/comic/:id' component={MainComic} />

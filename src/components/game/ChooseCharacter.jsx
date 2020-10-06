@@ -4,7 +4,7 @@ import SubHeader from '../header/SubHeader';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPlayer1, getPlayer2 } from '../../redux/actions/game-actions';
 
-const ChooseCharacter = () => {
+const ChooseCharacter = ({ history }) => {
     const dispatch = useDispatch();
     const character1 = useSelector((state) => state.game_reducer.player1);
     const character2 = useSelector((state) => state.game_reducer.player2);
@@ -20,7 +20,7 @@ const ChooseCharacter = () => {
             };
         });
         const numrandom = Math.floor(Math.random() * (100 - 0) + 0);
-        const choosed = res.filter(
+        const choosed = res.find(
             (item, index, arr) => arr.indexOf(item) === numrandom
         );
         return choosed;
@@ -29,10 +29,14 @@ const ChooseCharacter = () => {
     const chooseCharacter1 = () => {
         dispatch(getPlayer1(randomCharacter()));
     };
-
+    
     const chooseCharacter2 = () => {
         dispatch(getPlayer2(randomCharacter()));
     };
+    
+    const goRounds = () => {
+        history.push('/choose/rounds');
+    }
 
     return (
         <>
@@ -46,10 +50,10 @@ const ChooseCharacter = () => {
                             <div className='container-img-player'>
                                 <img
                                     className='img-player'
-                                    src={character1[0].img}
+                                    src={character1.img}
                                     alt='player 1'
                                 />
-                                <div className='limit-title'><h3 className='title-name'>{character1[0].name}</h3></div>
+                                <div className='limit-title'><h3 className='title-name'>{character1.name}</h3></div>
                             </div>
                         ) : (
                             <p className='incognit'>¿</p>
@@ -59,10 +63,10 @@ const ChooseCharacter = () => {
                             <div className='container-img-player'>
                                 <img
                                     className='img-player'
-                                    src={character2[0].img}
+                                    src={character2.img}
                                     alt='player 2'
                                 />
-                                <div className='limit-title'><h3 className='title-name'>{character2[0].name}</h3></div>
+                                <div className='limit-title'><h3 className='title-name'>{character2.name}</h3></div>
                             </div>
                         ) : (
                             <p className='incognit'>?</p>
@@ -84,8 +88,8 @@ const ChooseCharacter = () => {
                             </div>
                         ) : null}
                     </div>
-                    {character2 && character2 ? (
-                        <button className='button btn-start'>iniciar batalla</button>
+                    {character1 && character2 ? (
+                        <button type='button' onClick={goRounds} className='button btn-start'>iniciar batalla</button>
                     ) : null}
                 </section>
             </div>

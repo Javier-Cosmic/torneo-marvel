@@ -27,7 +27,7 @@ const GameMain = () => {
 
     return (
         <main className='container-game'>
-            <div className='game game-start'>
+            <form className='game game-start'>
                 <h1 className='title-game'>Ingresa el N° de peleas</h1>
                 <div className='container-input'>
                     <input
@@ -37,10 +37,10 @@ const GameMain = () => {
                         value={round}
                         onChange={handleRound}
                     />
-                    <button className='btn-game margin-btn' onClick={submitRound}>Jugar</button>
+                    <button type='submit' className='btn-game margin-btn' onClick={submitRound}>Jugar</button>
                 </div>
                 {alert && <p className='msg-error'>Debes ingresar un número valido</p>}
-            </div>
+            </form>
             {redirect && <Redirect to='/choose' />}
         </main>
     );

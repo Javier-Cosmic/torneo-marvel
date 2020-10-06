@@ -1,7 +1,9 @@
 import {
     GET_ROUND,
     GET_PLAYER1,
-    GET_PLAYER2
+    GET_PLAYER2,
+    RANKING,
+    CLEAN_STATE
 } from '../types';
 
 
@@ -23,5 +25,18 @@ export const getPlayer2 = (character) => {
     return{
         type: GET_PLAYER2,
         payload: character
+    }
+}
+
+export const rankingPlayers = (win) => {
+    return{
+        type: RANKING,
+        payload: win
+    }
+}
+
+export const cleanState = () => {
+    return{
+        type: CLEAN_STATE
     }
 }

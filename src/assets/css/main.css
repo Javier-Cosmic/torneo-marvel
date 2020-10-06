@@ -353,6 +353,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   margin-top: 10px;
+  margin-right: 1rem;
 }
 
 .limit-title {
