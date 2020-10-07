@@ -287,7 +287,7 @@
 }
 
 .game-choose {
-  padding: 3rem;
+  padding: 3rem 3rem 3.5rem 3rem;
 }
 
 .choose-character {
@@ -404,7 +404,7 @@
 
 .btn-start {
   width: 40%;
-  margin: 30px auto 0 auto;
+  margin: 30px auto -20px auto;
 }
 
 .btn-ale {
@@ -490,19 +490,21 @@
   }
 }
 .animation-player {
-  animation: 0.6s choose ease-in;
+  animation: 0.4s choose ease-in;
 }
 
 @keyframes choose {
   from {
+    opacity: 0;
     transform: scale(0, 0);
   }
   to {
+    opacity: 1;
     transform: scale(1, 1);
   }
 }
 .animation-btn {
-  animation: 0.6s crazy ease-in;
+  animation: 0.4s crazy ease-in;
 }
 
 @keyframes crazy {
@@ -512,6 +514,186 @@
   to {
     transform: rotate(360deg);
   }
+}
+.animation-battle {
+  animation: 2s floatup infinite;
+}
+
+@keyframes floatup {
+  50% {
+    transform: translateY(-15px);
+  }
+}
+.container-battle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(90vh - 129px);
+}
+
+.battle-card {
+  border: 1px solid rgba(107, 107, 107, 0.3);
+  border-radius: 5px;
+  background-color: #F8F8F8;
+  border: 1px solid rgba(107, 107, 107, 0.1);
+  border-radius: 5px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr, 120px, 1fr;
+  grid-template-rows: 1fr, 1fr, 1fr;
+  grid-template-areas: "box1 box4 box7" "box2 box5 box8" "box3 box6 box9";
+}
+
+.health-bar {
+  border: 2px groove rgba(107, 107, 107, 0.3);
+  margin-bottom: 10px;
+}
+
+.p1 {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.p2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.bar {
+  transition: width 1s, background-color 1s;
+}
+
+.name-round {
+  text-align: center;
+  font-weight: 700;
+  padding: 0 15px;
+  font-size: 1.3rem;
+}
+
+.round-win {
+  text-align: center;
+  font-weight: 700;
+}
+.round-win span {
+  font-weight: 400;
+}
+
+.name-player {
+  text-align: center;
+  font-weight: 500;
+}
+
+.number1 {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: right;
+  position: relative;
+  right: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.number2 {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  position: relative;
+  left: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.box-img-player {
+  margin: 40px auto;
+}
+
+.limit-nameplayer {
+  width: 180px;
+}
+
+.div-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.color1 {
+  box-shadow: 0px 0px 10px 2px rgba(12, 35, 240, 0.5);
+}
+
+.color2 {
+  box-shadow: 0px 0px 10px 2px rgba(240, 65, 12, 0.5);
+}
+
+@media (max-width: 595px) {
+  .battle-card {
+    grid-template-columns: repeat(3, 100px);
+  }
+
+  .limit-nameplayer {
+    width: 100px;
+  }
+
+  .number1 {
+    right: 0.1rem;
+  }
+
+  .number2 {
+    left: 0.1rem;
+  }
+}
+@media (max-width: 385px) {
+  .battle-card {
+    grid-template-columns: repeat(3, 95px);
+    padding: 1.5rem;
+  }
+
+  .limit-nameplayer {
+    width: 80px;
+  }
+}
+@media (max-width: 326px) {
+  .battle-card {
+    grid-template-columns: repeat(3, 85px);
+    padding: 2rem 0.6rem;
+  }
+
+  .limit-nameplayer {
+    width: 70px;
+  }
+}
+.box1 {
+  grid-area: box1;
+}
+
+.box2 {
+  grid-area: box2;
+}
+
+.box3 {
+  grid-area: box3;
+}
+
+.box4 {
+  grid-area: box4;
+}
+
+.box5 {
+  grid-area: box5;
+}
+
+.box6 {
+  grid-area: box6;
+}
+
+.box7 {
+  grid-area: box7;
+}
+
+.box8 {
+  grid-area: box8;
+}
+
+.box9 {
+  grid-area: box9;
 }
 
 /*# sourceMappingURL=main.css.map */

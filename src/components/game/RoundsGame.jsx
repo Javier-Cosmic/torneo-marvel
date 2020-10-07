@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Header from '../header/Header';
 import SubHeader from '../header/SubHeader';
 import { useSelector, useDispatch } from 'react-redux';
-import { rankingPlayers, cleanState } from '../../redux/actions/game-actions';
+import {colorAura, colorBar, colorRandom} from '../utils/index';
+import {
+    rankingPlayers,
+    cleanState
+} from '../../redux/actions/game-actions';
 
 const RoundsGame = () => {
     const dispatch = useDispatch();
@@ -12,6 +16,7 @@ const RoundsGame = () => {
     const pts = Math.round(Math.random() * (2000 - 1500) + 1500);
 
     const [ronda, setRonda] = useState(round);
+    const [count, setCount] = useState(1);
     const [ganadasP1, setGanadasP1] = useState(0);
     const [ganadasP2, setGanadasP2] = useState(0);
     const [health1, setHealth1] = useState(100);
@@ -32,14 +37,19 @@ const RoundsGame = () => {
     };
 
     useEffect(() => {
+       
         if (health1 <= 0) {
             setRonda(ronda - 1);
+            setCount(count + 1);
             console.log('jugador muerto player 1');
             setHealth1(100);
             setGanadasP2(ganadasP2 + 1);
             return;
         } else if (health2 <= 0) {
             setRonda(ronda - 1);
+            setCount(count + 1);
+            setRonda(ronda - 1);
+            setCount(count + 1);
             console.log('jugador muerto player 2');
             setHealth2(100);
             setGanadasP1(ganadasP1 + 1);
@@ -68,60 +78,102 @@ const RoundsGame = () => {
                 console.log('el ganador fue 2: ', newCharacter);
             }
         }
-    }, [ronda, health1, health2]);
+    }, [
+        ronda,
+        health1,
+        health2,
+    ]);
 
-    const colorBar = (health) => {
-        switch (health) {
-            case 40:
-                return 'yellow'
-            case 20:
-                return 'red'
-            default:
-                return 'green';
-        }
-    }
 
     return (
-        <div>
+        <>
             <Header />
-            <SubHeader>Rounds N°{ronda}</SubHeader>
-            Round 1
-            <div>
-                <h1>player 1</h1>
-                {ganadasP1}
-                <p>
-                    vida:
-                    <span
-                        style={{
-                            width: health1+'px',
-                            background: colorBar(health1),
-                            display: 'block',
-                            transition: 'width 1s, background 1s'
-                        }}
-                    >
-                        {health1}
-                    </span>
-                </p>
+            <SubHeader>Torneo marvel</SubHeader>
+            <div className='container-battle'>
+                <div className='battle-card'>
+                    {/* columna 1 */}
+                    <div className='box1 health-player'>
+                        <div className='health-bar p1'>
+                            <div
+                                className='bar'
+                                style={{
+                                    width: health1 + '%',
+                                    backgroundColor: colorBar(health1),
+                                }}
+                            >
+                                <p className='number1'>{health1}</p>
+                            </div>
+                        </div>
+                        <div className='limit-nameplayer'>
+                            <p className='name-player'>{character1.name}</p>
+                        </div>
+                    </div>
+
+                    <div className='box2 box-img-player'>
+                        <div className='container-img-player'>
+                            <img
+                                className='img-player animation-battle color1'
+                                src={character1.img}
+                                alt='player 1'
+                            />
+                        </div>
+                    </div>
+
+                    <div className='box3 round-win'>
+                        <p>rondas ganadas</p>
+                        <span>{ganadasP1}</span>
+                    </div>
+
+                    {/* columna 2 */}
+                    <div className='box4 name-round'>
+                        <p >round {count}</p>
+                    </div>
+                    <div className='box5'></div>
+                    <div className='box6 div-flex'>
+                        <button
+                            type='button'
+                            className='button'
+                            onClick={knock}
+                        >
+                            pelear
+                        </button>
+                    </div>
+
+                    {/* columna 3 */}
+                    <div className='box7 health-player'>
+                        <div className='health-bar p2'>
+                            <div
+                                className='bar'
+                                style={{
+                                    width: health2 + '%',
+                                    backgroundColor: colorBar(health2),
+                                }}
+                            >
+                                <p className='number2'>{health2}</p>
+                            </div>
+                        </div>
+                        <div className='limit-nameplayer'>
+                            <p className='name-player'>{character2.name}</p>
+                        </div>
+                    </div>
+
+                    <div className='box8 box-img-player'>
+                        <div className='container-img-player'>
+                            <img
+                                className='img-player animation-battle color2'
+                                src={character2.img}
+                                alt='player 2'
+                            />
+                        </div>
+                    </div>
+
+                    <div className='box9 round-win'>
+                        <p>rondas ganadas</p>
+                        <span>{ganadasP2}</span>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h1>player 2</h1>
-                {ganadasP2}
-                <p>
-                    vida:
-                    <span
-                        style={{
-                            width: health2,
-                            background: colorBar(health2),
-                            display: 'block',
-                            transition: 'width 1s, background 1s'
-                        }}
-                    >
-                        {health2}
-                    </span>
-                </p>
-            </div>
-            <button onClick={knock}>golpe</button>
-        </div>
+        </>
     );
 };
 

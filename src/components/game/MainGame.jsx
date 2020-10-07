@@ -15,19 +15,20 @@ const GameMain = () => {
     };
 
     const submitRound = () => {
-        if (!Number(round) <= 0) {
+        if (Number(round) <= 0) {
+            setAlert(true);
+            return;
+        } else if (Number(round) >= 1) {
             dispatch(getRound(Number(round)));
             setRedirect(true);
             setAlert(false);
-        } else {
-            setAlert(true);
             return;
         }
     };
 
     return (
         <main className='container-game'>
-            <form className='game game-start'>
+            <div className='game game-start'>
                 <h1 className='title-game'>Ingresa el N° de peleas</h1>
                 <div className='container-input'>
                     <input
@@ -37,11 +38,20 @@ const GameMain = () => {
                         value={round}
                         onChange={handleRound}
                     />
-                    <button type='submit' className='btn-game margin-btn' onClick={submitRound}>Jugar</button>
+                    <button
+                        type='button'
+                        className='btn-game margin-btn'
+                        onClick={submitRound}
+                    >
+                        Jugar
+                    </button>
                 </div>
-                {alert && <p className='msg-error'>Debes ingresar un número valido</p>}
-            </form>
-            {redirect && <Redirect to='/choose' />}
+                {alert ? (
+                    <p className='msg-error'>Debes ingresar un número valido</p>
+                ) : (
+                    <>{redirect && <Redirect to='/choose' />}</>
+                )}
+            </div>
         </main>
     );
 };

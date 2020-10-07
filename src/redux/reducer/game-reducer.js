@@ -2,8 +2,8 @@ import {
     GET_ROUND,
     GET_PLAYER1,
     GET_PLAYER2,
-    POINTS,
-    WINNER,
+    // POINTS,
+    // WINNER,
     RANKING,
     CLEAN_STATE
 } from '../types';
