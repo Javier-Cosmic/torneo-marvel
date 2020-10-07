@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import {useDispatch} from 'react-redux';
+import {saveWinner} from '../../redux/actions/game-actions';
 
-const useGame = (round, pts, character1, character2, rankingPlayers, cleanState) => {
+const useGame = (round, pts, character1, character2, rankingPlayers, history) => {
 
     const dispatch = useDispatch();
 
@@ -16,23 +17,21 @@ const useGame = (round, pts, character1, character2, rankingPlayers, cleanState)
         if (health1 <= 0) {
             setRonda(ronda - 1);
             setCount(count + 1);
-            console.log('jugador muerto player 1');
+
             setHealth1(100);
             setGanadasP2(ganadasP2 + 1);
             return;
+            
         } else if (health2 <= 0) {
             setRonda(ronda - 1);
             setCount(count + 1);
-            setRonda(ronda - 1);
-            setCount(count + 1);
-            console.log('jugador muerto player 2');
+
             setHealth2(100);
             setGanadasP1(ganadasP1 + 1);
             return;
         }
 
         if (ronda <= 0) {
-            console.log('el juego se ha acabado');
             let newCharacter;
 
             if (ganadasP1 > ganadasP2) {
@@ -40,17 +39,18 @@ const useGame = (round, pts, character1, character2, rankingPlayers, cleanState)
                 newCharacter = { ...newCharacter, points: pts };
 
                 dispatch(rankingPlayers(newCharacter));
-                dispatch(cleanState());
+                dispatch(saveWinner(newCharacter));
 
-                console.log('el ganador fue 1: ', newCharacter);
+                history.push('/choose/winner')
+
             } else {
                 newCharacter = character2;
                 newCharacter = { ...newCharacter, points: pts };
 
                 dispatch(rankingPlayers(newCharacter));
-                dispatch(cleanState());
+                dispatch(saveWinner(newCharacter));
 
-                console.log('el ganador fue 2: ', newCharacter);
+                history.push('/choose/winner')
             }
         }
     }, [ronda, health1, health2]);
@@ -63,7 +63,7 @@ const useGame = (round, pts, character1, character2, rankingPlayers, cleanState)
         health2,
         ganadasP1,
         count,
-        ganadasP2,
+        ganadasP2
     ];
 };
 

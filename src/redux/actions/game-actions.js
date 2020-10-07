@@ -3,7 +3,7 @@ import {
     GET_PLAYER1,
     GET_PLAYER2,
     RANKING,
-    CLEAN_STATE
+    CLEAN_STATE, WINNER
 } from '../types';
 
 
@@ -32,6 +32,13 @@ export const rankingPlayers = (win) => {
     return{
         type: RANKING,
         payload: win
+    }
+}
+
+export const saveWinner = (winner) => {
+    return{
+        type: WINNER,
+        payload: winner
     }
 }
 

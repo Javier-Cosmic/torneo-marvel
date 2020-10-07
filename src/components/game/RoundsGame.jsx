@@ -2,12 +2,13 @@ import React from 'react';
 import useGame from '../hooks/useGame';
 import Header from '../header/Header';
 import SubHeader from '../header/SubHeader';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { colorBar } from '../utils/index';
-import { rankingPlayers, cleanState } from '../../redux/actions/game-actions';
+import { rankingPlayers } from '../../redux/actions/game-actions';
 
-const RoundsGame = () => {
-    const dispatch = useDispatch();
+
+const RoundsGame = ({ history }) => {
+
     const character1 = useSelector((state) => state.game_reducer.player1);
     const character2 = useSelector((state) => state.game_reducer.player2);
     const round = useSelector((state) => state.game_reducer.round);
@@ -21,8 +22,8 @@ const RoundsGame = () => {
         health2,
         ganadasP1,
         count,
-        ganadasP2,
-    ] = useGame(round, pts, character1, character2, rankingPlayers, cleanState);
+        ganadasP2
+    ] = useGame(round, pts, character1, character2, rankingPlayers, history);
 
     const knock = () => {
         if (ronda > 0) {
@@ -30,10 +31,9 @@ const RoundsGame = () => {
 
             if (random === 0) {
                 setHealth1(health1 - 20);
-                console.log('salud player 1 ', health1);
+
             } else if (random === 1) {
                 setHealth2(health2 - 20);
-                console.log('salud player 2 ', health2);
             }
         }
     };

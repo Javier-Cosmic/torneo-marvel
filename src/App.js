@@ -8,6 +8,7 @@ import MainComic from './components/comic/MainComic';
 import MainRanking from './components/ranking/MainRanking';
 import ChooseCharacter from './components/game/ChooseCharacter';
 import RoundsGame from './components/game/RoundsGame';
+import Winner from './components/game/Winner';
 import Error from './components/home/Error';
 import ProtectedRoute from './components/route/ProtectedRoute';
 
@@ -18,6 +19,7 @@ function App() {
         <Route exact path='/' component={Home} />
         <ProtectedRoute exact path='/choose'component={ChooseCharacter} />
         <ProtectedRoute path='/choose/rounds' component={RoundsGame} />
+        <ProtectedRoute path='/choose/winner' component={Winner} />
         <Route exact path='/ranking' component={MainRanking} />
         <Route exact path='/character' component={MainCharacter} />
         <Route exact path='/comic/:id' component={MainComic} />

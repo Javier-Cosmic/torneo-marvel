@@ -9,7 +9,6 @@ export const GET_ROUND = 'GET_ROUND';
 export const GET_PLAYER1 = 'GET_PLAYER1';
 export const GET_PLAYER2 = 'GET_PLAYER2';
 
-export const POINTS = 'POINTS';
 export const WINNER = 'WINNER';
 export const FIGHTS = 'FIGHTS';
 export const RANKING = 'RANKING';

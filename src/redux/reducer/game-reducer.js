@@ -2,8 +2,7 @@ import {
     GET_ROUND,
     GET_PLAYER1,
     GET_PLAYER2,
-    // POINTS,
-    // WINNER,
+    WINNER,
     RANKING,
     CLEAN_STATE
 } from '../types';
@@ -12,7 +11,7 @@ const initialState = {
     round: 0,
     player1: null,
     player2: null,
-    ganador: null,
+    winner: null,
     ranking: [],
     fights: []
 }
@@ -39,6 +38,12 @@ export default (state = initialState, action) => {
                 player2: action.payload
             }
 
+        case WINNER:
+            return{
+                ...state,
+                winner: action.payload
+            }
+
         case RANKING:
             return{
                 ...state,
@@ -50,7 +55,8 @@ export default (state = initialState, action) => {
                 ...state,
                 player1: null,
                 player2: null,
-                round: 0
+                round: 0,
+                winner: null
             }
     
         default:
