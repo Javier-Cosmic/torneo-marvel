@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import useGame from '../hooks/useGame';
 import Header from '../header/Header';
 import SubHeader from '../header/SubHeader';
 import { useSelector, useDispatch } from 'react-redux';
-import {colorAura, colorBar, colorRandom} from '../utils/index';
-import {
-    rankingPlayers,
-    cleanState
-} from '../../redux/actions/game-actions';
+import { colorBar } from '../utils/index';
+import { rankingPlayers, cleanState } from '../../redux/actions/game-actions';
 
 const RoundsGame = () => {
     const dispatch = useDispatch();
@@ -15,12 +13,16 @@ const RoundsGame = () => {
     const round = useSelector((state) => state.game_reducer.round);
     const pts = Math.round(Math.random() * (2000 - 1500) + 1500);
 
-    const [ronda, setRonda] = useState(round);
-    const [count, setCount] = useState(1);
-    const [ganadasP1, setGanadasP1] = useState(0);
-    const [ganadasP2, setGanadasP2] = useState(0);
-    const [health1, setHealth1] = useState(100);
-    const [health2, setHealth2] = useState(100);
+    const [
+        ronda,
+        setHealth1,
+        health1,
+        setHealth2,
+        health2,
+        ganadasP1,
+        count,
+        ganadasP2,
+    ] = useGame(round, pts, character1, character2, rankingPlayers, cleanState);
 
     const knock = () => {
         if (ronda > 0) {
@@ -36,55 +38,6 @@ const RoundsGame = () => {
         }
     };
 
-    useEffect(() => {
-       
-        if (health1 <= 0) {
-            setRonda(ronda - 1);
-            setCount(count + 1);
-            console.log('jugador muerto player 1');
-            setHealth1(100);
-            setGanadasP2(ganadasP2 + 1);
-            return;
-        } else if (health2 <= 0) {
-            setRonda(ronda - 1);
-            setCount(count + 1);
-            setRonda(ronda - 1);
-            setCount(count + 1);
-            console.log('jugador muerto player 2');
-            setHealth2(100);
-            setGanadasP1(ganadasP1 + 1);
-            return;
-        }
-
-        if (ronda <= 0) {
-            console.log('el juego se ha acabado');
-            let newCharacter;
-
-            if (ganadasP1 > ganadasP2) {
-                newCharacter = character1;
-                newCharacter = { ...newCharacter, points: pts };
-
-                dispatch(rankingPlayers(newCharacter));
-                dispatch(cleanState());
-
-                console.log('el ganador fue 1: ', newCharacter);
-            } else {
-                newCharacter = character2;
-                newCharacter = { ...newCharacter, points: pts };
-
-                dispatch(rankingPlayers(newCharacter));
-                dispatch(cleanState());
-
-                console.log('el ganador fue 2: ', newCharacter);
-            }
-        }
-    }, [
-        ronda,
-        health1,
-        health2,
-    ]);
-
-
     return (
         <>
             <Header />
@@ -92,6 +45,8 @@ const RoundsGame = () => {
             <div className='container-battle'>
                 <div className='battle-card'>
                     {/* columna 1 */}
+
+                    {/* box 1 */}
                     <div className='box1 health-player'>
                         <div className='health-bar p1'>
                             <div
@@ -109,6 +64,7 @@ const RoundsGame = () => {
                         </div>
                     </div>
 
+                    {/* box 2 */}
                     <div className='box2 box-img-player'>
                         <div className='container-img-player'>
                             <img
@@ -119,16 +75,19 @@ const RoundsGame = () => {
                         </div>
                     </div>
 
+                    {/* box 3 */}
                     <div className='box3 round-win'>
                         <p>rondas ganadas</p>
                         <span>{ganadasP1}</span>
                     </div>
 
                     {/* columna 2 */}
+                    {/* box 4 */}
                     <div className='box4 name-round'>
-                        <p >round {count}</p>
+                        <p>round {count}</p>
                     </div>
                     <div className='box5'></div>
+                    {/* box 6 */}
                     <div className='box6 div-flex'>
                         <button
                             type='button'
@@ -140,6 +99,7 @@ const RoundsGame = () => {
                     </div>
 
                     {/* columna 3 */}
+                    {/* box 7 */}
                     <div className='box7 health-player'>
                         <div className='health-bar p2'>
                             <div
@@ -156,7 +116,7 @@ const RoundsGame = () => {
                             <p className='name-player'>{character2.name}</p>
                         </div>
                     </div>
-
+                    {/* box 8 */}
                     <div className='box8 box-img-player'>
                         <div className='container-img-player'>
                             <img
@@ -166,7 +126,7 @@ const RoundsGame = () => {
                             />
                         </div>
                     </div>
-
+                    {/* box 9 */}
                     <div className='box9 round-win'>
                         <p>rondas ganadas</p>
                         <span>{ganadasP2}</span>
