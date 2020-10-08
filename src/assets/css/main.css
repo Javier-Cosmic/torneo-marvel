@@ -140,17 +140,18 @@
 }
 
 .img {
-  height: 330px;
-  width: 300px;
-  margin: 22px;
+  height: 300px;
+  width: 280px;
+  margin: 30px 30px 10px 30px;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .card {
   background-color: #F8F8F8;
   border: 1px solid rgba(107, 107, 107, 0.1);
   border-radius: 5px;
-  height: 480px;
+  height: 460px;
   margin: 20px;
 }
 
@@ -189,6 +190,7 @@
   height: 300px;
   width: 250px;
   margin: 20px;
+  border-radius: 5px;
 }
 
 .links-character {
@@ -246,11 +248,11 @@
 @media (max-width: 350px) {
   .card {
     margin: 25px 0 0 0;
-    height: 480px;
+    height: 470px;
   }
 
   .img {
-    width: 230px;
+    width: 220px;
     height: 300px;
   }
 
@@ -761,9 +763,98 @@
     font-size: 0.8rem;
   }
 }
+.container-ranking {
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}
+.search input {
+  height: 30px;
+  width: 250px;
+  border-radius: 2px;
+  outline: none;
+  border: 2px solid #000000;
+  padding-left: 8px;
+}
+.search input:focus {
+  border: 2px solid #EC1D24;
+}
+.search input::placeholder {
+  color: rgba(68, 68, 68, 0.7);
+}
+@media (max-width: 650px) {
+  .search {
+    margin: 25px auto;
+  }
+  .search input {
+    width: 240px;
+  }
+}
+
 .container-table {
-  background-color: red;
-  width: 400px;
+  width: 600px;
+  height: 400px;
+  overflow: auto;
+}
+@media (max-width: 650px) {
+  .container-table {
+    width: 500px;
+    margin: 0 20px 20px 20px;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table thead tr th {
+  background-color: #202020;
+  padding: 0.7rem;
+  color: white;
+  font-weight: 400;
+  position: sticky;
+  top: 0;
+}
+.table th, .table td {
+  text-align: left;
+}
+.table th:nth-child(1), .table td:nth-child(1) {
+  width: 10%;
+}
+.table th:nth-child(2), .table td:nth-child(2) {
+  width: 10%;
+}
+.table th:nth-child(4), .table td:nth-child(4) {
+  width: 20%;
+}
+.table tbody {
+  transition: 0.5s all;
+  border: 2px solid rgba(107, 107, 107, 0.1);
+}
+.table tbody:hover {
+  background-color: #ec1d24;
+  color: white;
+}
+.table tbody tr td {
+  padding: 0 0.6rem;
+}
+.table tbody:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+.table tbody:nth-child(odd):hover {
+  background-color: #EC1D24;
+  color: white;
+}
+
+.img-table {
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
 }
 
 /*# sourceMappingURL=main.css.map */

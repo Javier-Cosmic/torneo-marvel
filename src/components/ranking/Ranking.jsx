@@ -5,7 +5,7 @@ const Ranking = ({ character }) => {
         <tbody>
                 <tr>
                     <td>{character.id}</td>
-                    <td><img src={character.img} width='80px' alt='player' /></td>
+                    <td><img src={character.img} className='img-table' alt={character.name} /></td>
                     <td>{character.name}</td>
                     <td>{character.points}</td>
                 </tr>

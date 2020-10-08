@@ -19,7 +19,6 @@ const MainRanking = () => {
             item.name.toLowerCase().includes(search)
         );
         setFilter(filterId);
-        
     }, [search, ranking]);
 
     if (ranking.length === 0) {
@@ -33,33 +32,36 @@ const MainRanking = () => {
     }
 
     return (
-        <div>
+        <>
             <Header />
             <SubHeader>Ranking de ganadores</SubHeader>
-            Ranking
-            <input
-                type='text'
-                onChange={onChange}
-                name='search'
-                value={search}
-                placeholder='filtrar por nombre'
-            />
-            <div className='container-table'>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>id</th>
-                            <th>img</th>
-                            <th>nombre</th>
-                            <th>puntos</th>
-                        </tr>
-                    </thead>
-                    {filter.map((character) => (
-                        <Ranking key={character.id} character={character} />
-                    ))}
-                </table>
+            <div className='search'>
+                <input
+                    type='text'
+                    onChange={onChange}
+                    name='search'
+                    value={search}
+                    placeholder='filtrar por nombre'
+                />
             </div>
-        </div>
+            <div className='container-ranking'>
+                <div className='container-table'>
+                    <table className='table'>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>image</th>
+                                <th>nombre</th>
+                                <th>puntos</th>
+                            </tr>
+                        </thead>
+                        {filter.map((character) => (
+                            <Ranking key={character.id} character={character} />
+                        ))}
+                    </table>
+                </div>
+            </div>
+        </>
     );
 };
 
