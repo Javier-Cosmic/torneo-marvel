@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './components/home/Home';
 import MainCharacter from './components/character/MainCharacter';
@@ -11,8 +11,19 @@ import RoundsGame from './components/game/RoundsGame';
 import Winner from './components/game/Winner';
 import Error from './components/home/Error';
 import ProtectedRoute from './components/route/ProtectedRoute';
+import { loadCharacter } from './redux/actions/api-actions';
+import { useDispatch } from 'react-redux';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      const loadingCharacter = () => {
+          dispatch(loadCharacter());
+      };
+      loadingCharacter();
+  }, [dispatch]);
+
   return (
     <Router>
       <Switch>

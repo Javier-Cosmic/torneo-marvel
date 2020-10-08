@@ -38,6 +38,7 @@ const RoundsGame = ({ history }) => {
         }
     };
 
+
     return (
         <>
             <Header />
@@ -70,7 +71,7 @@ const RoundsGame = ({ history }) => {
                             <img
                                 className='img-player animation-battle color1'
                                 src={character1.img}
-                                alt='player 1'
+                                alt={character1.name}
                             />
                         </div>
                     </div>
@@ -122,7 +123,7 @@ const RoundsGame = ({ history }) => {
                             <img
                                 className='img-player animation-battle color2'
                                 src={character2.img}
-                                alt='player 2'
+                                alt={character2.name}
                             />
                         </div>
                     </div>

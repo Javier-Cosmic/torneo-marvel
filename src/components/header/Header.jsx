@@ -1,15 +1,24 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import Logo from '../../assets/img/logo.PNG';
 import { NavLink, Link } from 'react-router-dom';
+import { cleanState } from '../../redux/actions/game-actions'
 
-const header = () => {
+const Header = () => {
+    const dispatch = useDispatch()
+
+    const clean = () => {
+        dispatch(cleanState());
+    };
+
     return (
-        <header className='header'>
-            <Link className='link-logo' to='/'>
+        <div className='header'>
+            <Link onClick={clean} className='link-logo' to='/'>
                 <img className='logo' src={Logo} alt='logo marvel' />
             </Link>
             <div className='container-link'>
                 <NavLink
+                    onClick={clean}
                     activeClassName='link-active'
                     className='link'
                     to='/ranking'
@@ -17,6 +26,7 @@ const header = () => {
                     Ranking
                 </NavLink>
                 <NavLink
+                    onClick={clean}
                     activeClassName='link-active'
                     className='link'
                     to='/character'
@@ -24,8 +34,8 @@ const header = () => {
                     Superhéroes
                 </NavLink>
             </div>
-        </header>
+        </div>
     );
 };
 
-export default header;
+export default Header;

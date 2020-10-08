@@ -226,9 +226,15 @@
 }
 
 .color-link3 {
+  text-decoration: none;
+  padding: 0.3rem 0.2rem;
+  font-weight: 500;
+  border-radius: 5px;
+  color: white;
+  vertical-align: middle;
   background-color: transparent;
   color: #EC1D24;
-  border: 1px solid #EC1D24;
+  border: 3px solid #EC1D24;
   transition: 0.2s;
 }
 .color-link3:hover {
@@ -728,6 +734,7 @@
   color: #EC1D24;
   border-radius: 5px;
   outline: none;
+  vertical-align: middle;
 }
 .btn-winner:hover {
   color: white;
@@ -753,6 +760,10 @@
   .btn-size {
     font-size: 0.8rem;
   }
+}
+.container-table {
+  background-color: red;
+  width: 400px;
 }
 
 /*# sourceMappingURL=main.css.map */

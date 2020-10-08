@@ -51,7 +51,7 @@ const ChooseCharacter = ({ history }) => {
                                 <img
                                     className='img-player'
                                     src={character1.img}
-                                    alt=''
+                                    alt={character1.name}
                                 />
                                 <div className='limit-title'><h3 className='title-name'>{character1.name}</h3></div>
                             </div>
@@ -64,7 +64,7 @@ const ChooseCharacter = ({ history }) => {
                                 <img
                                     className='img-player'
                                     src={character2.img}
-                                    alt=''
+                                    alt={character2.name}
                                 />
                                 <div className='limit-title'><h3 className='title-name'>{character2.name}</h3></div>
                             </div>

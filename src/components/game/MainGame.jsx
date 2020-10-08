@@ -14,10 +14,12 @@ const GameMain = () => {
         setRound(e.target.value);
     };
 
-    const submitRound = () => {
+    const submitRound = (e) => {
+        e.preventDefault();
         if (Number(round) <= 0) {
             setAlert(true);
             return;
+
         } else if (Number(round) >= 1) {
             dispatch(getRound(Number(round)));
             setRedirect(true);
@@ -28,7 +30,7 @@ const GameMain = () => {
 
     return (
         <main className='container-game'>
-            <div className='game game-start'>
+            <form className='game game-start'>
                 <h1 className='title-game'>Ingresa el N° de peleas</h1>
                 <div className='container-input'>
                     <input
@@ -51,7 +53,7 @@ const GameMain = () => {
                 ) : (
                     <>{redirect && <Redirect to='/choose' />}</>
                 )}
-            </div>
+            </form>
         </main>
     );
 };

@@ -4,7 +4,7 @@ import {
     GET_PLAYER2,
     WINNER,
     RANKING,
-    CLEAN_STATE
+    CLEAN_STATE,
 } from '../types';
 
 const initialState = {
@@ -13,53 +13,53 @@ const initialState = {
     player2: null,
     winner: null,
     ranking: [],
-    fights: []
-}
+    fights: [],
+};
 
 export default (state = initialState, action) => {
-    
     switch (action.type) {
-
         case GET_ROUND:
-            return{
+            return {
                 ...state,
-                round: action.payload
-            }
+                round: action.payload,
+            };
 
         case GET_PLAYER1:
-            return{
+            return {
                 ...state,
-                player1: action.payload
-            }
+                player1: action.payload,
+            };
 
         case GET_PLAYER2:
-            return{
+            return {
                 ...state,
-                player2: action.payload
-            }
-
-        case WINNER:
-            return{
-                ...state,
-                winner: action.payload
-            }
+                player2: action.payload,
+            };
 
         case RANKING:
-            return{
+            return {
                 ...state,
-                ranking: [...state.ranking, action.payload].sort((a,b) => b.points - a.points)
-            }
+                ranking: [...state.ranking, action.payload].sort(
+                    (a, b) => b.points - a.points
+                ),
+            };
+            
+        case WINNER:
+            return {
+                ...state,
+                winner: action.payload,
+            };
 
         case CLEAN_STATE:
-            return{
+            return {
                 ...state,
                 player1: null,
                 player2: null,
                 round: 0,
-                winner: null
-            }
-    
+                winner: null,
+            };
+
         default:
             return state;
     }
-}
+};

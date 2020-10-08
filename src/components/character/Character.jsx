@@ -15,7 +15,7 @@ const Character = ({ character }) => {
             <div className='links-character'>
                 <Link className='link-comic color-link1' to={`/comic/${character.id}`}>Comics</Link>
                 <Link className='link-comic color-link2' to={`/comic/${character.id}`}>Series</Link>
-                <Link className='link-comic color-link3' to={`/comic/${character.id}`}>Eventos</Link>
+                <Link className='color-link3' to={`/comic/${character.id}`}>Eventos</Link>
             </div>
         </div>
     );

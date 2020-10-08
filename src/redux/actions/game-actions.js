@@ -3,7 +3,8 @@ import {
     GET_PLAYER1,
     GET_PLAYER2,
     RANKING,
-    CLEAN_STATE, WINNER
+    CLEAN_STATE, 
+    WINNER
 } from '../types';
 
 
