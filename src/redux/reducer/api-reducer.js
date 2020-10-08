@@ -2,12 +2,16 @@ import {
     LOADING,
     SHOW_CHARACTER,
     SHOW_COMIC,
+    SHOW_SERIE,
+    SHOW_EVENT
 } from '../types';
 
 const initialState = {
     characters: [],
     loading: false,
-    comics: []
+    comics: [],
+    series: [],
+    events: []
 }
 
 export default (state = initialState, action) => {
@@ -31,6 +35,20 @@ export default (state = initialState, action) => {
             return{
                 ...state,
                 comics: action.payload,
+                loading: false
+            }
+
+        case SHOW_SERIE:
+            return{
+                ...state,
+                series: action.payload,
+                loading: false
+            }
+
+        case SHOW_EVENT:
+            return {
+                ...state,
+                events: action.payload,
                 loading: false
             }
     

@@ -5,12 +5,11 @@ import { useSelector } from 'react-redux';
 import Character from './Character';
 
 const MainCharacter = () => {
-
     const character = useSelector((state) => state.api_reducer.characters);
     const loading = useSelector((state) => state.api_reducer.loading);
 
     return (
-        <div>
+        <>
             <Header />
             <SubHeader>Personajes</SubHeader>
             {loading ? (
@@ -24,7 +23,7 @@ const MainCharacter = () => {
                     ))}
                 </div>
             )}
-        </div>
+        </>
     );
 };
 

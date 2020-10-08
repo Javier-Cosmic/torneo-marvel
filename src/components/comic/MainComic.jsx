@@ -15,24 +15,22 @@ const MainComic = () => {
     const loading = useSelector((state) => state.api_reducer.loading);
 
     useEffect(() => {
-        const loadingComic = () => {
-            dispatch(loadComic(id));
-        };
+        dispatch(loadComic(id));
 
-        loadingComic();
     }, [dispatch, id]);
 
     if (id.length < 7) {
         return (
             <>
                 <Header />
+                <SubHeader>Comics</SubHeader>
                 <h1 className='title-error'>ID erroneo</h1>
             </>
         );
     }
 
     return (
-        <div>
+        <>
             <Header />
             <SubHeader>Comics</SubHeader>
             {loading ? (
@@ -42,12 +40,12 @@ const MainComic = () => {
             ) : (
                 <div className='container'>
                     {comic.map((comic) => (
-                        <Comic key={comic.id} comic={comic} id={id} />
+                        <Comic key={comic.id} comic={comic} />
                     ))}
                 </div>
             )}
             <ButtonBack comic='comic'/>
-        </div>
+        </>
     );
 };
 

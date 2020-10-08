@@ -34,8 +34,8 @@ function App() {
         <Route exact path='/ranking' component={MainRanking} />
         <Route exact path='/character' component={MainCharacter} />
         <Route exact path='/comic/:id' component={MainComic} />
-        <Route exact path='/series' component={MainSeries} />
-        <Route exact path='/events' component={MainEvents} />
+        <Route exact path='/series/:id' component={MainSeries} />
+        <Route exact path='/events/:id' component={MainEvents} />
         <Route component={Error} />
       </Switch>
     </Router>

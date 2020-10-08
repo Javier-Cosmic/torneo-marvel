@@ -28,6 +28,7 @@ const useGame = (
             setHealth1(100);
             setGanadasP2(ganadasP2 + 1);
             return;
+            
         } else if (health2 <= 0) {
             setRonda(ronda - 1);
             setCount(count + 1);

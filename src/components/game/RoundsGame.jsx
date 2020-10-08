@@ -6,9 +6,7 @@ import { useSelector } from 'react-redux';
 import { colorBar } from '../utils/index';
 import { rankingPlayers } from '../../redux/actions/game-actions';
 
-
 const RoundsGame = ({ history }) => {
-
     const character1 = useSelector((state) => state.game_reducer.player1);
     const character2 = useSelector((state) => state.game_reducer.player2);
     const round = useSelector((state) => state.game_reducer.round);
@@ -37,7 +35,6 @@ const RoundsGame = ({ history }) => {
             }
         }
     };
-
 
     return (
         <>

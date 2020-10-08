@@ -35,28 +35,31 @@ const MainRanking = () => {
         <>
             <Header />
             <SubHeader>Ranking de ganadores</SubHeader>
-            <div className='search'>
-                <input
-                    type='text'
-                    onChange={onChange}
-                    name='search'
-                    value={search}
-                    placeholder='filtrar por nombre'
-                />
-            </div>
             <div className='container-ranking'>
                 <div className='container-table'>
                     <table className='table'>
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>image</th>
+                                <th>
+                                </th>
+                                <th><input
+                                        type='text'
+                                        onChange={onChange}
+                                        name='search'
+                                        value={search}
+                                        className='input-search'
+                                        placeholder='filtrar por nombre'
+                                    /></th>
                                 <th>nombre</th>
                                 <th>puntos</th>
                             </tr>
                         </thead>
-                        {filter.map((character) => (
-                            <Ranking key={character.id} character={character} />
+                        {filter.map((character, index) => (
+                            <Ranking
+                                key={character.id}
+                                character={character}
+                                index={index}
+                            />
                         ))}
                     </table>
                 </div>

@@ -1,9 +1,13 @@
 import {
     LOADING,
     LOAD_CHARACTER, 
-    LOAD_COMIC, 
     SHOW_CHARACTER,
-    SHOW_COMIC
+    LOAD_COMIC, 
+    SHOW_COMIC,
+    LOAD_SERIE,
+    SHOW_SERIE,
+    LOAD_EVENT,
+    SHOW_EVENT
 } from '../types';
 
 export const loading = (boolean) => {
@@ -36,6 +40,34 @@ export const loadComic = (id) => {
 export const showComic = (data) => {
     return{
         type: SHOW_COMIC,
+        payload: data
+    }
+}
+
+export const loadSerie = (id) => {
+    return{
+        type: LOAD_SERIE,
+        payload: id
+    }
+}
+
+export const showSerie = (data) => {
+    return{
+        type: SHOW_SERIE,
+        payload: data
+    }
+}
+
+export const loadEvent = (id) => {
+    return{
+        type: LOAD_EVENT,
+        payload: id
+    }
+}
+
+export const showEvent = (data) => {
+    return{
+        type: SHOW_EVENT,
         payload: data
     }
 }
