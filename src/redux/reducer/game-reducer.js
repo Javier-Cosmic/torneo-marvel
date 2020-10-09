@@ -5,7 +5,7 @@ import {
     WINNER,
     RANKING,
     CLEAN_STATE,
-    FIGHTS
+    FIGHTS,
 } from '../types';
 
 const initialState = {
@@ -44,7 +44,7 @@ export default (state = initialState, action) => {
                     (a, b) => b.points - a.points
                 ),
             };
-            
+
         case WINNER:
             return {
                 ...state,
@@ -52,10 +52,10 @@ export default (state = initialState, action) => {
             };
 
         case FIGHTS:
-            return{
+            return {
                 ...state,
-                fights: [...state.fights, action.payload]
-            }
+                fights: [...state.fights, action.payload],
+            };
 
         case CLEAN_STATE:
             return {

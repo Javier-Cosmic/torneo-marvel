@@ -12,7 +12,7 @@ const MainRanking = () => {
     const [filter, setFilter] = useState([]);
 
     const onChange = (e) => {
-        setSearch(e.target.value);
+        setSearch(e.target.value.toLowerCase())
     };
 
     useEffect(() => {

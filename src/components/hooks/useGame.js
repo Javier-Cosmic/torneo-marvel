@@ -61,7 +61,6 @@ const useGame = (
                 history.push('/choose/winner');
             }
 
-
             const fight = {
                 date: date(), p1: character1.name, p2: character2.name, win: newCharacter.name
             }

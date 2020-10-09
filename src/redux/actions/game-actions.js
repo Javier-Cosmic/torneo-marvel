@@ -4,7 +4,8 @@ import {
     GET_PLAYER2,
     RANKING,
     CLEAN_STATE, 
-    WINNER, FIGHTS
+    WINNER, 
+    FIGHTS
 } from '../types';
 
 
