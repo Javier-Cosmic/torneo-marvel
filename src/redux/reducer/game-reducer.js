@@ -5,6 +5,7 @@ import {
     WINNER,
     RANKING,
     CLEAN_STATE,
+    FIGHTS
 } from '../types';
 
 const initialState = {
@@ -49,6 +50,12 @@ export default (state = initialState, action) => {
                 ...state,
                 winner: action.payload,
             };
+
+        case FIGHTS:
+            return{
+                ...state,
+                fights: [...state.fights, action.payload]
+            }
 
         case CLEAN_STATE:
             return {

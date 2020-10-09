@@ -3,6 +3,7 @@ import Header from '../header/Header';
 import SubHeader from '../header/SubHeader';
 import { useSelector } from 'react-redux';
 import Ranking from './Ranking';
+import MainFight from './MainFight';
 
 const MainRanking = () => {
     const ranking = useSelector((state) => state.game_reducer.ranking);
@@ -40,18 +41,22 @@ const MainRanking = () => {
                     <table className='table'>
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>
-                                </th>
-                                <th><input
+                                    <input
                                         type='text'
                                         onChange={onChange}
                                         name='search'
                                         value={search}
                                         className='input-search'
                                         placeholder='filtrar por nombre'
-                                    /></th>
+                                    />
+                                </th>
                                 <th>nombre</th>
-                                <th>puntos <i className="fas fa-trophy icon"></i></th>
+                                <th>
+                                    puntos{' '}
+                                    <i className='fas fa-trophy icon'></i>
+                                </th>
                             </tr>
                         </thead>
                         {filter.map((character, index) => (
@@ -64,6 +69,7 @@ const MainRanking = () => {
                     </table>
                 </div>
             </div>
+            <MainFight />
         </>
     );
 };

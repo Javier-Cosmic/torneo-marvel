@@ -9,3 +9,16 @@ export const colorBar = (health) => {
             return '#3DA650';
     }
 };
+
+export const date = () => {
+    const date = new Date()
+    const day = date.getDay()
+    const month = date.getMonth()
+    const year = date.getFullYear()
+
+    const dia = '0'+day
+    const mes = '0'+month
+    const fulldate = `${dia.slice(-2)}/${mes.slice(-2)}/${year}`
+
+    return fulldate
+}

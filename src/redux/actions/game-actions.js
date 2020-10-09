@@ -4,7 +4,7 @@ import {
     GET_PLAYER2,
     RANKING,
     CLEAN_STATE, 
-    WINNER
+    WINNER, FIGHTS
 } from '../types';
 
 
@@ -40,6 +40,13 @@ export const saveWinner = (winner) => {
     return{
         type: WINNER,
         payload: winner
+    }
+}
+
+export const saveFights = (info) => {
+    return{
+        type: FIGHTS,
+        payload: info
     }
 }
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch} from 'react-redux';
-import { saveWinner } from '../../redux/actions/game-actions';
+import { saveWinner, saveFights } from '../../redux/actions/game-actions';
+import { date } from '../utils/index';
 
 const useGame = (
     round,
@@ -59,6 +60,12 @@ const useGame = (
                 dispatch(saveWinner(newCharacter));
                 history.push('/choose/winner');
             }
+
+
+            const fight = {
+                date: date(), p1: character1.name, p2: character2.name, win: newCharacter.name
+            }
+            dispatch(saveFights(fight))
         }
     }, [ronda, health1, health2]);
 
