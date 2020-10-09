@@ -54,7 +54,7 @@ const MainRanking = () => {
                                 </th>
                                 <th>nombre</th>
                                 <th>
-                                    puntos{' '}
+                                    puntos
                                     <i className='fas fa-trophy icon'></i>
                                 </th>
                             </tr>

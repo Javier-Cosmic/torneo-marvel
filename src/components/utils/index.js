@@ -12,8 +12,8 @@ export const colorBar = (health) => {
 
 export const date = () => {
     const date = new Date()
-    const day = date.getDay()
-    const month = date.getMonth()
+    const day = date.getDate()
+    const month = date.getMonth()+1
     const year = date.getFullYear()
 
     const dia = '0'+day
