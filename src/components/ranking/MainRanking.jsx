@@ -51,7 +51,7 @@ const MainRanking = () => {
                                         placeholder='filtrar por nombre'
                                     /></th>
                                 <th>nombre</th>
-                                <th>puntos</th>
+                                <th>puntos <i className="fas fa-trophy icon"></i></th>
                             </tr>
                         </thead>
                         {filter.map((character, index) => (

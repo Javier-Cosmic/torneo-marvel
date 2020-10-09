@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import Logo from '../../assets/img/logo.PNG';
-import { NavLink, Link } from 'react-router-dom';
+import Logo from '../../assets/img/logo.png';
+import { NavLink } from 'react-router-dom';
 import { cleanState } from '../../redux/actions/game-actions'
 
 const Header = () => {
@@ -13,9 +13,9 @@ const Header = () => {
 
     return (
         <div className='header'>
-            <Link onClick={clean} className='link-logo' to='/'>
+            <NavLink onClick={clean} className='link-logo' to='/'>
                 <img className='logo' src={Logo} alt='logo marvel' />
-            </Link>
+            </NavLink>
             <div className='container-link'>
                 <NavLink
                     onClick={clean}

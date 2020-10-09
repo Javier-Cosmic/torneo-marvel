@@ -13,13 +13,14 @@ import {
 } from '../types';
 
 const url = process.env.REACT_APP_API_URL
-const key = process.env.REACT_APP_PUBLIC_KEY
+const key = process.env.REACT_APP_KEY
+const ts = 'ts=1&';
 
 function* getCharacters(){
 
     try {
         yield put({ type: LOADING, payload: true })
-        const result = yield call(axios.get, url+'?orderBy=-modified&limit=100&'+key);
+        const result = yield call(axios.get, `${url}?${ts}orderBy=-modified&limit=100&${key}`);
 
         yield put({ type: SHOW_CHARACTER, payload: result.data.data.results})
         
@@ -32,7 +33,7 @@ function* getComics({ payload }){
 
     try {
         yield put({ type: LOADING, payload: true })
-        const result = yield call(axios.get, url+`/${payload}/comics?&`+key);
+        const result = yield call(axios.get, `${url}/${payload}/comics?&${ts+key}`);
 
         yield put({ type: SHOW_COMIC, payload: result.data.data.results })
 
@@ -44,7 +45,7 @@ function* getComics({ payload }){
 function* getSeries({ payload }){
     try {
         yield put({ type: LOADING, payload: true })
-        const result = yield call(axios.get, url+`/${payload}/series?`+key);
+        const result = yield call(axios.get, `${url}/${payload}/series?&${ts+key}`);
 
         yield put({ type: SHOW_SERIE, payload: result.data.data.results })
 
@@ -56,7 +57,7 @@ function* getSeries({ payload }){
 function* getEvents({ payload }){
     try {
         yield put({ type: LOADING, payload: true })
-        const result = yield call(axios.get, url+`/${payload}/events?`+key);
+        const result = yield call(axios.get, `${url}/${payload}/events?&${ts+key}`);
 
         yield put({ type: SHOW_EVENT, payload: result.data.data.results })
         

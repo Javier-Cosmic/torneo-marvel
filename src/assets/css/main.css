@@ -779,13 +779,8 @@
   padding-left: 8px;
 }
 .input-search:focus {
-  box-shadow: 0 0 10px 3px rgba(255, 0, 0, 0.7);
+  border: 2px solid #EC1D24;
   color: rgba(255, 0, 0, 0.7);
-}
-@media (max-width: 768px) {
-  .input-search:focus {
-    border: 2px solid #EC1D24;
-  }
 }
 .input-search::placeholder {
   color: rgba(85, 84, 84, 0.6);
@@ -872,6 +867,11 @@
   height: 70px;
   vertical-align: middle;
   border-radius: 5px;
+}
+
+.icon {
+  color: #fcff34;
+  margin-left: 5px;
 }
 
 /*# sourceMappingURL=main.css.map */
