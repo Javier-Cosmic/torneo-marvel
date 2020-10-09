@@ -787,9 +787,14 @@
   color: rgba(85, 84, 84, 0.6);
   font-size: 0.9rem;
 }
-@media (max-width: 465px) {
+@media (min-width: 281px) and (max-width: 465px) {
   .input-search {
     width: 180px;
+  }
+}
+@media (max-width: 305px) {
+  .input-search {
+    width: 150px;
   }
 }
 
@@ -850,7 +855,13 @@
 }
 .table th:nth-child(2),
 .table td:nth-child(2) {
-  width: 32%;
+  width: 5%;
+}
+@media (max-width: 465px) {
+  .table th:nth-child(2),
+.table td:nth-child(2) {
+    width: 32%;
+  }
 }
 .table tbody {
   transition: 0.5s all;
@@ -897,6 +908,7 @@
 @media (max-width: 464px) {
   .icon {
     margin-left: 22px;
+    margin-right: 5px;
   }
 }
 
